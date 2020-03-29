@@ -4,13 +4,14 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
     color: white;
     font-family: 'Russo One', sans-serif;
+    text-align: right;
 `;
 
 const ShowData = styled.h2`
-    font-size: ${({ small }) => small ? '2.8rem' : '3.6rem'};
+    font-size: ${({ small }) => small ? '2.6rem' : '3.4rem'};
     font-weight: 600;
     padding: 0;
-    line-height: ${({ small }) => small ? '2.8rem' : '3.6rem'};
+    line-height: ${({ small }) => small ? '2.6rem' : '3.4rem'};
 `;
 
 const Date = () => {
