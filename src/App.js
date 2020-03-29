@@ -1,7 +1,16 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Header from './components/sections/header/Header';
+import Header from './components/layout/header/Header';
+import Nav from './components/layout/nav/Nav';
+import PageWrapper from './components/elements/PageWrapper/PageWrapper';
+import Main from './components/views/Main';
+import Business from './components/views/Business';
+import Entertaiment from './components/views/Entertaiment';
+import Health from './components/views/Health';
+import Science from './components/views/Science';
+import Sports from './components/views/Sports';
+import Technology from './components/views/Technology';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -14,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 10px;
         font-family: 'Open Sans', sans-serif;
         font-weight: 300;
+        width: 100%;
     }
 `;
 
@@ -28,6 +38,19 @@ const App = () => {
             <GlobalStyle />
             <Wrapper>
                 <Header />
+                <Nav />
+                <PageWrapper>
+                    <Switch>
+                        <Route exact path='/' component={Main} />
+                        <Route path='/business' component={Business} />
+                        <Route path='/entertaiment' component={Entertaiment} />
+                        <Route path='/health' component={Health} />
+                        <Route path='/science' component={Science} />
+                        <Route path='/sports' component={Sports} />
+                        <Route path='/technology' component={Technology} />
+                        <Route component={Main} />
+                    </Switch>
+                </PageWrapper>
             </Wrapper>
         </BrowserRouter>
     );
