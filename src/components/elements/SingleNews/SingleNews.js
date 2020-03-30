@@ -85,9 +85,7 @@ const SingleNews = ({ src, title }) => {
             )
         }
     }
-
-    const test = "Koronawirus. Helmut Marko chciał zarazić kierowców F1 - Ofsajd Onet mobilki mozna";
-    console.log(test.length)
+    
     return ( 
         <Wrapper>
             <ImgWrapper src={src} />

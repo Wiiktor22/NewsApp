@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import SingleNews from '../elements/SingleNews/SingleNews';
-import ErrorPage from '../elements/ErrorPage/ErrorPage';
+import LoadingPage from '../elements/LoadingPage/LoadingPage';
 import { useLocation } from 'react-router-dom';
 import { MyThemeContext } from './../context/ThemeContext';
  
@@ -70,7 +70,7 @@ const Business = () => {
 
     return (
         <> 
-            {data.length > 0 ? showNews() : <ErrorPage />}
+            {data.length > 0 ? showNews() : <LoadingPage />}
             {amountOfData < 20 ? (
                 <Button color={getTheme()} onClick={getMoreData}>
                     więcej informacji...
