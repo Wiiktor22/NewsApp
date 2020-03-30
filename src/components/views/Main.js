@@ -1,19 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
-import styled from 'styled-components';
 import SingleNews from '../elements/SingleNews/SingleNews';
 import { useLocation } from 'react-router-dom';
 import { MyThemeContext } from './../context/ThemeContext';
 import LoadingPage from '../elements/LoadingPage/LoadingPage';
- 
-const Button = styled.button`
-    color: ${({ color }) => color};
-    margin: 2vh 0;
-    width: 100%;
-    text-align: center;
-    border: none;
-    background-color: transparent;
-    outline: none;
-`;
+import Button from './../elements/ShowMoreButton/Button';
 
 const Main = () => {
     const [data, setData] = useState([]);

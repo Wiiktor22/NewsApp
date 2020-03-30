@@ -12,6 +12,7 @@ import Science from './components/views/Science';
 import Sports from './components/views/Sports';
 import Technology from './components/views/Technology';
 import MyThemeContextProvider from './components/context/ThemeContext';
+import Footer from './components/layout/footer/Footer';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -53,6 +54,7 @@ const App = () => {
                         <Route component={Main} />
                     </Switch>
                 </PageWrapper>
+                <Footer />
             </Wrapper>
             </MyThemeContextProvider>
         </BrowserRouter>

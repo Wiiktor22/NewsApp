@@ -10,11 +10,21 @@ const Wrapper = styled.article`
     border-radius: 10px;
     background-color: #fafafa;
     box-shadow: 0px 0px 8px rgba(209,209,209,0.7);
+    animation: .4s show linear;
+    @keyframes show {
+        from {
+            transform: scale(.75);
+        }
+        to {
+            transform: scale(1);
+        }
+    }
     @media (min-height: 633px) {
         height: 12vh;
         margin: 0 auto 2vh;
     }
 `;
+
 const ImgWrapper = styled.img`
     position: absolute;
     height: 100%;
@@ -44,6 +54,16 @@ const Button = styled.button`
     font-size: 1.1rem;
     color: ${({ color }) => color };
     margin-top: 1vh;
+`;
+
+const NoPhoto = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 30vw;
+    font-size: 1.1rem;
 `;
 
 const SingleNews = ({ src, title }) => {
@@ -88,7 +108,7 @@ const SingleNews = ({ src, title }) => {
     
     return ( 
         <Wrapper>
-            <ImgWrapper src={src} />
+            {src ? <ImgWrapper src={src} /> : <NoPhoto>Brak zdjęcia</NoPhoto>}
             <Content>
                 <Title>{defineMaxLenght(title)}</Title>
                 <Button color={getTheme()}>czytaj więcej...</Button>

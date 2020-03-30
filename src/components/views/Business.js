@@ -1,20 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
-import styled from 'styled-components';
 import SingleNews from '../elements/SingleNews/SingleNews';
 import LoadingPage from '../elements/LoadingPage/LoadingPage';
 import { useLocation } from 'react-router-dom';
 import { MyThemeContext } from './../context/ThemeContext';
+import Button from './../elements/ShowMoreButton/Button';
  
-const Button = styled.button`
-    color: ${({ color }) => color};
-    margin: 2vh 0;
-    width: 100%;
-    text-align: center;
-    border: none;
-    background-color: transparent;
-    outline: none;
-`;
-
 const Business = () => {
     const [data, setData] = useState([]);
     const [amountOfData, setAmountOfData] = useState(10);
