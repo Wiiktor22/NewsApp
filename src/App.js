@@ -11,6 +11,7 @@ import Health from './components/views/Health';
 import Science from './components/views/Science';
 import Sports from './components/views/Sports';
 import Technology from './components/views/Technology';
+import MyThemeContextProvider from './components/context/ThemeContext';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -36,6 +37,7 @@ const App = () => {
     return ( 
         <BrowserRouter>
             <GlobalStyle />
+            <MyThemeContextProvider>
             <Wrapper>
                 <Header />
                 <Nav />
@@ -52,6 +54,7 @@ const App = () => {
                     </Switch>
                 </PageWrapper>
             </Wrapper>
+            </MyThemeContextProvider>
         </BrowserRouter>
     );
 }

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import './Nav.css';
+import { useLocation } from 'react-router-dom';
+import { MyThemeContext } from './../../context/ThemeContext';
 
 const NavWrapper = styled.nav`
     display: flex;
@@ -9,22 +10,64 @@ const NavWrapper = styled.nav`
     align-items: center;
     height: 10vh;
     width: 100%;
-    color: #FA4D61;
+    color: ${({ theme }) => theme };
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+`;
+
+const SectionLink = styled(NavLink)`
+    color: ${({ theme }) => theme };
+    display: inline-block;
+    text-decoration: none;
+    font-size: 2.2rem;
+    margin: 0 14px;
+    font-weight: 400;
+    outline: none;
+    &.active {
+        background-color: ${({ theme }) => theme };
+        color: white;
+        border-radius: 20px;
+        padding: 3px 10px;
+    }
 `;
 
 const Nav = () => {
+    let location = useLocation();
+    const { colors } = useContext(MyThemeContext);
+    const getTheme = () => {
+        switch (location.pathname) {
+            case '/':
+                return colors.main
+            case '/business':
+                return colors.business
+            case '/entertaiment':
+                return colors.entertaiment
+            case '/technology':
+                return colors.technology
+            case '/science':
+                return colors.science
+            case '/health':
+                return colors.health
+            case '/sports':
+                return colors.sports
+            default:
+                return colors.main
+        }
+    }
     return ( 
         <NavWrapper>
-            <NavLink exact to="/" activeClassName="selected" >newsy</NavLink>
-            <NavLink to="/business" activeClassName="selected">biznes</NavLink>
-            <NavLink to="/entertaiment" activeClassName="selected">rozrywka</NavLink>
-            <NavLink to="/health" activeClassName="selected">zdrowie</NavLink>
-            <NavLink to="/science" activeClassName="selected">nauka</NavLink>
-            <NavLink to="/sports" activeClassName="selected">sport</NavLink>
-            <NavLink to="/technology" activeClassName="selected">technologia</NavLink>
+            <SectionLink exact to="/" theme={getTheme()}>newsy</SectionLink>
+            <SectionLink to="/business" theme={getTheme()}>biznes</SectionLink>
+            <SectionLink to="/entertaiment" theme={getTheme()}>rozrywka</SectionLink>
+            <SectionLink to="/health" theme={getTheme()}>zdrowie</SectionLink>
+            <SectionLink to="/science" theme={getTheme()}>nauka</SectionLink>
+            <SectionLink to="/sports" theme={getTheme()}>sport</SectionLink>
+            <SectionLink to="/technology" theme={getTheme()}>technologia</SectionLink>
         </NavWrapper>
     );
 }
