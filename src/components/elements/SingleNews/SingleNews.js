@@ -119,7 +119,6 @@ const SingleNews = ({ src, title, index }) => {
             {src ? <ImgWrapper src={src} /> : <NoPhoto>Brak zdjęcia</NoPhoto>}
             <Content>
                 <Title>{defineMaxLenght(title)}</Title>
-                {console.log(correctPath)}
                 <Link to={correctPath}>
                     <Button color={getTheme()}>czytaj więcej...</Button>
                 </Link>

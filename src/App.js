@@ -1,19 +1,11 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Header from './components/layout/header/Header';
-import Nav from './components/layout/nav/Nav';
 import PageWrapper from './components/elements/PageWrapper/PageWrapper';
-import Main from './components/views/Main';
-import Business from './components/views/Business';
-import Entertaiment from './components/views/Entertaiment';
-import Health from './components/views/Health';
-import Science from './components/views/Science';
-import Sports from './components/views/Sports';
-import Technology from './components/views/Technology';
 import MyThemeContextProvider from './components/context/ThemeContext';
 import Footer from './components/layout/footer/Footer';
 import NewsPreview from './components/views/NewsPreview.js/NewsPreview';
+import NewsList from './components/views/NewsList/NewsList';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -41,19 +33,11 @@ const App = () => {
             <GlobalStyle />
             <MyThemeContextProvider>
             <Wrapper>
-                <Header />
-                <Nav />
                 <PageWrapper>
                     <Switch>
-                        <Route exact path='/' component={Main} />
+                        <Route exact path='/' component={NewsList} />
+                        <Route path='/(business|entertaiment|health|science|sports|technology)/' component={NewsList} />
                         <Route path='/news/:id' component={NewsPreview} />
-                        <Route path='/business' component={Business} />
-                        <Route path='/entertaiment' component={Entertaiment} />
-                        <Route path='/health' component={Health} />
-                        <Route path='/science' component={Science} />
-                        <Route path='/sports' component={Sports} />
-                        <Route path='/technology' component={Technology} />
-                        <Route component={Main} />
                     </Switch>
                 </PageWrapper>
                 <Footer />
