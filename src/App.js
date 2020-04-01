@@ -13,6 +13,7 @@ import Sports from './components/views/Sports';
 import Technology from './components/views/Technology';
 import MyThemeContextProvider from './components/context/ThemeContext';
 import Footer from './components/layout/footer/Footer';
+import NewsPreview from './components/views/NewsPreview.js/NewsPreview';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -45,6 +46,7 @@ const App = () => {
                 <PageWrapper>
                     <Switch>
                         <Route exact path='/' component={Main} />
+                        <Route path='/news/:id' component={NewsPreview} />
                         <Route path='/business' component={Business} />
                         <Route path='/entertaiment' component={Entertaiment} />
                         <Route path='/health' component={Health} />

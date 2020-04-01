@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { MyThemeContext } from './../../context/ThemeContext';
 
 const Wrapper = styled.article`
@@ -66,7 +66,7 @@ const NoPhoto = styled.div`
     font-size: 1.1rem;
 `;
 
-const SingleNews = ({ src, title }) => {
+const SingleNews = ({ src, title, index }) => {
     let location = useLocation();
     const { colors } = useContext(MyThemeContext);
     
@@ -105,13 +105,24 @@ const SingleNews = ({ src, title }) => {
             )
         }
     }
+    const getPath = () => {
+        if (location.pathname === '/') {
+            return '/news'
+        } else {
+            return location.pathname
+        }
+    }
+    const correctPath = `${getPath()}/${index}`
     
     return ( 
         <Wrapper>
             {src ? <ImgWrapper src={src} /> : <NoPhoto>Brak zdjęcia</NoPhoto>}
             <Content>
                 <Title>{defineMaxLenght(title)}</Title>
-                <Button color={getTheme()}>czytaj więcej...</Button>
+                {console.log(correctPath)}
+                <Link to={correctPath}>
+                    <Button color={getTheme()}>czytaj więcej...</Button>
+                </Link>
             </Content>
         </Wrapper>
     );

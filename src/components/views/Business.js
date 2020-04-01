@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import SingleNews from '../elements/SingleNews/SingleNews';
-import LoadingPage from '../elements/LoadingPage/LoadingPage';
 import { useLocation } from 'react-router-dom';
 import { MyThemeContext } from './../context/ThemeContext';
+import LoadingPage from '../elements/LoadingPage/LoadingPage';
 import Button from './../elements/ShowMoreButton/Button';
- 
-const Business = () => {
+import { connect } from 'react-redux';
+
+const Business = ({ updateStoreData }) => {
     const [data, setData] = useState([]);
     const [amountOfData, setAmountOfData] = useState(10);
     let location = useLocation();
@@ -33,7 +34,7 @@ const Business = () => {
     
     useEffect(() => {
         async function fetchData() {
-            const url = 'http://newsapi.org/v2/top-headlines?country=pl&category=business&apiKey=409c2cd5c18546cb8bedc9f5ea78b032';
+            const url = 'http://newsapi.org/v2/top-headlines?country=pl&apiKey=409c2cd5c18546cb8bedc9f5ea78b032';
             const response = await fetch(url);
             const downloadedData = await response.json();
             setData(downloadedData.articles)
@@ -42,12 +43,14 @@ const Business = () => {
     }, [amountOfData])
     const showNews = () => {
         data.length = amountOfData;
+        updateStoreData(data);
         return (
-            data.map(item => (
-                <SingleNews
+            data.map((item, index) => (
+                <SingleNews 
                     key={item.title}
                     src={item.urlToImage}
                     title={item.title}
+                    index={index}
                 />
             ))
         )
@@ -77,5 +80,11 @@ const Business = () => {
         </>
     );
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        updateStoreData: (data) => {dispatch({ type: "DOWNLOAD", storeData: data })}
+    }
+}
  
-export default Business;
+export default connect(null, mapDispatchToProps)(Business);

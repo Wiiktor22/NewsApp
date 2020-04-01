@@ -45,7 +45,6 @@ const Header = () => {
     }
     return ( 
         <HeaderWrapper theme={getTheme()}>
-            {console.log(colors)}
             <Logo src={NewsImg} />
             <Date />
         </HeaderWrapper>

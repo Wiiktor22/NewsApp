@@ -4,8 +4,9 @@ import { useLocation } from 'react-router-dom';
 import { MyThemeContext } from './../context/ThemeContext';
 import LoadingPage from '../elements/LoadingPage/LoadingPage';
 import Button from './../elements/ShowMoreButton/Button';
+import { connect } from 'react-redux';
 
-const Main = () => {
+const Main = ({ updateStoreData }) => {
     const [data, setData] = useState([]);
     const [amountOfData, setAmountOfData] = useState(10);
     let location = useLocation();
@@ -42,12 +43,14 @@ const Main = () => {
     }, [amountOfData])
     const showNews = () => {
         data.length = amountOfData;
+        updateStoreData(data);
         return (
-            data.map(item => (
+            data.map((item, index) => (
                 <SingleNews 
                     key={item.title}
                     src={item.urlToImage}
                     title={item.title}
+                    index={index}
                 />
             ))
         )
@@ -77,5 +80,11 @@ const Main = () => {
         </>
     );
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        updateStoreData: (data) => {dispatch({ type: "DOWNLOAD", storeData: data })}
+    }
+}
  
-export default Main;
+export default connect(null, mapDispatchToProps)(Main);
