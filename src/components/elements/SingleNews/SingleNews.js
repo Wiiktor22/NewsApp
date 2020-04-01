@@ -69,7 +69,6 @@ const NoPhoto = styled.div`
 const SingleNews = ({ src, title, index }) => {
     let location = useLocation();
     const { colors } = useContext(MyThemeContext);
-    
     const getTheme = () => {
         switch (location.pathname) {
             case '/':
@@ -90,6 +89,7 @@ const SingleNews = ({ src, title, index }) => {
                 return colors.main
         }
     }
+    
     const defineMaxLenght = (title) => {
         if (window.innerHeight <= 640) {
             return (

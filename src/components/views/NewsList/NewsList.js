@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import SingleNews from './../../elements/SingleNews/SingleNews';
 import Button from './../../elements/ShowMoreButton/Button';
 import LoadingPage from './../../elements/LoadingPage/LoadingPage';
+import Footer from '../../layout/footer/Footer';
 
 const Wrapper = styled.div`
     padding: 2vh 7vw;
@@ -111,6 +112,7 @@ const NewsList = ({ updateStoreData }) => {
                     </Button>
                 )}
             </Wrapper>
+            <Footer />
         </>
     );
 }
