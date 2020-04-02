@@ -80,14 +80,6 @@ const CloseBtn = styled.button`
     border:none;
 `;
 
-const EmptyPhoto = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    border-radius: 0 0 15px 15px;
-`;
-
 const NewsPreview = props => {
     //Get correct article
     const id = Number(props.match.params.id);

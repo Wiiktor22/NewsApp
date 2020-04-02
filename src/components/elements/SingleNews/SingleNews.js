@@ -23,6 +23,13 @@ const Wrapper = styled.article`
         height: 12vh;
         margin: 0 auto 2vh;
     }
+    @media (min-width: 768px) {
+        height: 14vh;
+    }
+    @media (min-width: 768px) {
+        height: 15vh;
+        width: 40vw;
+    }
 `;
 
 const ImgWrapper = styled.img`
@@ -30,6 +37,16 @@ const ImgWrapper = styled.img`
     height: 100%;
     width: 30vw;
     border-radius: 10px 0 0 10px;
+    @media (min-width: 768px) {
+        height: 45%;
+        width: auto;
+        border-radius: 10px;
+    }
+    @media (min-width: 1024px) {
+        width: 20vw;
+        height: 15vh;
+        max-height: 15vh;
+    }
 `;
 
 const Content = styled.div`
@@ -37,11 +54,25 @@ const Content = styled.div`
     height: 100%;
     margin-left: 30vw;
     padding: 5px 10px;
+    @media (min-width: 768px) {
+        margin-left: 0;
+        margin-top: 65px;
+    }
+    @media (min-width: 1024px) {
+        margin-top: 0;
+        margin-left: 20vw;
+    }
 `;
 
 const Title = styled.h5`
     font-weight: 400;
     font-size: 1.3rem;
+    @media (min-width: 768px) {
+        font-size: 1.5rem;
+    }
+    @media (min-width: 768px) {
+        font-size: 1.4rem;
+    }
 `;
 
 const Button = styled.button`
@@ -54,6 +85,17 @@ const Button = styled.button`
     font-size: 1.1rem;
     color: ${({ color }) => color };
     margin-top: 1vh;
+    @media (min-width: 768px) {
+        left: auto;
+        right: 40px;
+        top: -200px;
+        font-size: 1.3rem;
+    }
+    @media (min-width: 1024px) {
+        height: 20px;
+        left: 10px;
+        top: 80px;
+    }
 `;
 
 const NoPhoto = styled.div`
@@ -64,6 +106,9 @@ const NoPhoto = styled.div`
     height: 100%;
     width: 30vw;
     font-size: 1.1rem;
+    @media (min-width: 1024px){
+        width: 20vw;
+    }
 `;
 
 const SingleNews = ({ src, title, index }) => {
@@ -89,7 +134,7 @@ const SingleNews = ({ src, title, index }) => {
                 return colors.main
         }
     }
-    
+
     const defineMaxLenght = (title) => {
         if (window.innerHeight <= 640) {
             return (
@@ -99,9 +144,9 @@ const SingleNews = ({ src, title, index }) => {
             return (
                 title.length < 80 ? title : `${title.slice(0, 76)}...`
             )
-        } else if (window.innerHeight > 750 && window.innerHeight < 1024) {
+        } else {
             return (
-                title.length < 100 ? title : `${title.slice(0, 95)}...`
+                title.length < 90 ? title : `${title.slice(0, 85)}...`
             )
         }
     }

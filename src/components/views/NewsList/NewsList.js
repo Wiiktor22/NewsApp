@@ -12,6 +12,11 @@ import Footer from '../../layout/footer/Footer';
 
 const Wrapper = styled.div`
     padding: 2vh 7vw;
+    @media (min-width: 768px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2vh 4vw;
+    }
 `;
 
 const NewsList = ({ updateStoreData }) => {
@@ -72,6 +77,9 @@ const NewsList = ({ updateStoreData }) => {
         }
         fetchData();
     }, [amountOfData, location.pathname])
+    useEffect(() => {
+        setAmountOfData(10);
+    }, [location.pathname])
     const showNews = () => {
         data.length = amountOfData;
         updateStoreData(data);
@@ -96,7 +104,7 @@ const NewsList = ({ updateStoreData }) => {
         <> 
             <Header />
             <Nav />
-            <Wrapper>
+            <Wrapper rows={amountOfData / 2}>
                 {data.length > 0 ? showNews() : <LoadingPage />}
                 {amountOfData < 20 ? (
                     <Button color={getTheme()} onClick={getMoreData}>

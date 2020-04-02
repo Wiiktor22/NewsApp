@@ -18,6 +18,9 @@ const NavWrapper = styled.nav`
     &::-webkit-scrollbar {
         display: none;
     }
+    @media (min-width: 1024px) {
+        justify-content: center;
+    }
 `;
 
 const SectionLink = styled(NavLink)`
