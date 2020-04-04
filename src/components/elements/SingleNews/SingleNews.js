@@ -21,7 +21,6 @@ const Wrapper = styled.article`
     }
     @media (min-height: 633px) {
         height: 12vh;
-        margin: 0 auto 2vh;
     }
     @media (min-width: 768px) {
         height: 14vh;
@@ -29,6 +28,14 @@ const Wrapper = styled.article`
     @media (min-width: 768px) {
         height: 15vh;
         width: 40vw;
+    }
+    @media (min-width: 1366px) {
+        height: 20vh;
+        width: 37vw;
+    }
+    @media (min-width: 1536px) {
+        height: 20vh;
+        width: 32vw;
     }
 `;
 
@@ -45,7 +52,12 @@ const ImgWrapper = styled.img`
     @media (min-width: 1024px) {
         width: 20vw;
         height: 15vh;
-        max-height: 15vh;
+    }
+    @media (min-width: 1366px) {
+        width: 15vw;
+        height: 20vh;
+        padding: 1.5vh 1vw;
+        border-radius: 20px;
     }
 `;
 
@@ -62,16 +74,20 @@ const Content = styled.div`
         margin-top: 0;
         margin-left: 20vw;
     }
+    @media (min-width: 1366px) {
+        margin-left: 15vw;
+        margin-top: 1vh;
+    }
 `;
 
 const Title = styled.h5`
     font-weight: 400;
     font-size: 1.3rem;
     @media (min-width: 768px) {
-        font-size: 1.5rem;
-    }
-    @media (min-width: 768px) {
         font-size: 1.4rem;
+    }
+    @media (min-width: 1366px) {
+        font-size: 1.5rem;
     }
 `;
 
@@ -85,6 +101,7 @@ const Button = styled.button`
     font-size: 1.1rem;
     color: ${({ color }) => color };
     margin-top: 1vh;
+    cursor: pointer;
     @media (min-width: 768px) {
         left: auto;
         right: 40px;
@@ -95,6 +112,10 @@ const Button = styled.button`
         height: 20px;
         left: 10px;
         top: 80px;
+    }
+    @media (min-width: 1024px) {
+        font-size: 1.3rem;
+        top: 100px;
     }
 `;
 
@@ -108,6 +129,10 @@ const NoPhoto = styled.div`
     font-size: 1.1rem;
     @media (min-width: 1024px){
         width: 20vw;
+    }
+    @media (min-width: 1366px){
+        width: 15vw;
+        font-size: 1.3rem;
     }
 `;
 

@@ -9,6 +9,7 @@ const Wrapper = styled.div`
     align-items: center;
     width: 100%;
     height: calc(100vh - 10vh - 90px);
+    grid-column: 1 / -1;
 `;
 
 const AnimationContainer = styled.div`

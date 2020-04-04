@@ -21,6 +21,12 @@ const NavWrapper = styled.nav`
     @media (min-width: 1024px) {
         justify-content: center;
     }
+    @media (min-width: 1366px) {
+        position: absolute;
+        top: 1vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 `;
 
 const SectionLink = styled(NavLink)`
@@ -36,6 +42,13 @@ const SectionLink = styled(NavLink)`
         color: white;
         border-radius: 20px;
         padding: 3px 10px;
+    }
+    @media (min-width: 1366px) {
+        color: white;
+        &.active {
+            color: ${({ theme }) => theme };
+            background-color: white;
+        }
     }
 `;
 

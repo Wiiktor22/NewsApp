@@ -16,6 +16,11 @@ const Wrapper = styled.div`
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 2vh 4vw;
+        padding: 10vh 7vw 3vh;
+    }
+    @media (min-width: 1536px) {
+        grid-gap: 3vh 0;
+        padding: 6vh 15vw 3vh;
     }
 `;
 
@@ -104,7 +109,7 @@ const NewsList = ({ updateStoreData }) => {
         <> 
             <Header />
             <Nav />
-            <Wrapper rows={amountOfData / 2}>
+            <Wrapper>
                 {data.length > 0 ? showNews() : <LoadingPage />}
                 {amountOfData < 20 ? (
                     <Button color={getTheme()} onClick={getMoreData}>

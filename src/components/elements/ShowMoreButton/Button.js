@@ -10,6 +10,8 @@ const Button = styled.button`
     border: none;
     background-color: transparent;
     outline: none;
+    grid-column: 1 / -1;
+    cursor: pointer;
 `;
 
 export default Button;

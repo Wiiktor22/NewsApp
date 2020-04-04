@@ -43,6 +43,7 @@ const App = () => {
                         <Route path='/sports/:id' component={NewsPreview} />
                         <Route path='/technology/:id' component={NewsPreview} />
                         <Route path='/(business|entertaiment|health|science|sports|technology)/' component={NewsList} />
+                        <Route component={NewsList} />
                     </Switch>
                 </PageWrapper>
             </Wrapper>

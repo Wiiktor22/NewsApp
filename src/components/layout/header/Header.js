@@ -13,6 +13,9 @@ const HeaderWrapper = styled.header`
     width: 100%;
     background-color: ${({ theme }) => theme};
     border-radius: 0 0 15px 15px;
+    @media (min-width: 1366px) {
+        padding: 15px 30px;
+    }
 `;
 
 const Logo = styled.img`

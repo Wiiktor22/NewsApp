@@ -6,6 +6,16 @@ import { MyThemeContext } from './../../context/ThemeContext';
 const Wrapper = styled.div`
     position: relative;
     min-height: 100vh;
+    @media (min-width: 1366px) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60vw;
+    }
 `;
 
 const SecondWrapper = styled.div`
@@ -17,6 +27,18 @@ const SecondWrapper = styled.div`
     z-index: 2;
     border-radius: 0 0 15px 15px;
     background-color: ${({ color }) => color};
+    @media (min-width: 1366px) {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        aligh-items: center;
+        height: 100%;
+        background-color: transparent;
+    }
 `;
 
 const ImgWrapper = styled.img`
@@ -26,10 +48,26 @@ const ImgWrapper = styled.img`
     z-index: 3;
     width: 100%;
     border-radius: 0 0 15px 15px;
+    @media (min-width: 1366px) {
+        height: 40vh;
+        width: auto;
+        position: static;
+        top: auto;
+        left: auto;
+        border-radius: 15px 15px 0 0;
+        display: block;
+        margin: 0 7vw;
+    }
 `;
 
 const ColorWrapper = styled.div`
     margin-top: ${({ height }) => `${height + 5}px`};
+    @media (min-width: 1366px) {
+        margin: 0 7vw;
+        background-color: ${({ color }) => color};
+        height: 46px;
+        border-radius: 0 0 15px 15px;
+    }
 `;
 
 const PaddingWrapper = styled.div`
@@ -45,6 +83,10 @@ const Text = styled.p`
             text-align: center;
         `
     )}
+
+    @media(min-width: 1366px) {
+        font-size: 1.4rem;
+    }
 `;
 
 const Title = styled.h4`
@@ -77,7 +119,12 @@ const CloseBtn = styled.button`
     color: ${({ color }) => color};
     font-size: 3rem;
     z-index: 9;
-    border:none;
+    border: none;
+    cursor: pointer;
+    @media (min-width: 1366px){
+        top: 3vh;
+        right: 7vw;
+    }
 `;
 
 const NewsPreview = props => {
@@ -150,7 +197,7 @@ const NewsPreview = props => {
                 >x</CloseBtn>
             <SecondWrapper color={getTheme()} height={imageHeight}>
                 {getPhoto()}
-                <ColorWrapper height={imageHeight}>
+                <ColorWrapper height={imageHeight} color={getTheme()}>
                     <Text white>{currentArticle.source.name.toLowerCase()}</Text>
                     <Text white>{currentArticle.publishedAt.slice(0,10)}</Text>
                 </ColorWrapper>
