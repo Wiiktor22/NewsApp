@@ -27,6 +27,9 @@ const NavWrapper = styled.nav`
         left: 50%;
         transform: translateX(-50%);
     }
+    @media (min-width: 1800px) {
+        top: 0;
+    }
 `;
 
 const SectionLink = styled(NavLink)`

@@ -22,6 +22,10 @@ const Wrapper = styled.div`
         grid-gap: 3vh 0;
         padding: 6vh 15vw 3vh;
     }
+    @media (min-width: 1800px) {
+        grid-gap: 2vh 0;
+        padding: 6vh 18vw 3vh;
+    }
 `;
 
 const NewsList = ({ updateStoreData }) => {

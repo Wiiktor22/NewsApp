@@ -37,6 +37,10 @@ const Wrapper = styled.article`
         height: 20vh;
         width: 32vw;
     }
+    @media (min-width: 1536px) {
+        height: 18vh;
+        width: 29vw;
+    }
 `;
 
 const ImgWrapper = styled.img`
@@ -58,6 +62,9 @@ const ImgWrapper = styled.img`
         height: 20vh;
         padding: 1.5vh 1vw;
         border-radius: 20px;
+    }
+    @media(min-width: 1800px) {
+        height: 18vh;
     }
 `;
 
