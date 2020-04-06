@@ -28,7 +28,7 @@ const Wrapper = styled.div`
 
 const App = () => {
     return ( 
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <BrowserRouter>
             <GlobalStyle />
             <MyThemeContextProvider>
             <Wrapper>
