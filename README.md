@@ -1,5 +1,8 @@
 # NewsApp
 
+## Important :warning:
+The API which use in this project, from now on requires paid-plan if you want to use it from the build version of your app, so right now this application is working only in developer mode with the usage of "localhost"!
+
 #### Screenshot :camera:
 <p align="center">
 <img src="https://i.ibb.co/3sbMynr/Screenshot.jpg"  alt="NewsApp">
